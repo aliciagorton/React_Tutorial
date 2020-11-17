@@ -5,8 +5,10 @@ import './index.css';
 class Square extends React.Component {
     render() {
       return (
-        <button className="square">
-          {/* TODO */}
+        // Forgetting () => and writing onClick={alert('click')} is a common mistake, and would fire the alert every time the component re-renders.
+        // <button className="square" onClick={function () { alert('click');}}>
+        <button className="square" onClick={() => alert('click')}>
+          {this.props.value}
         </button>
       );
     }
@@ -14,7 +16,7 @@ class Square extends React.Component {
   
   class Board extends React.Component {
     renderSquare(i) {
-      return <Square />;
+      return <Square value={i} />;
     }
   
     render() {
